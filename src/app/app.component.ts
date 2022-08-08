@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <app-header></app-header>
     <router-outlet></router-outlet>
   </app-container>`,
-  styleUrls: ['./app.component.sass'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'cat-wiki-app';
