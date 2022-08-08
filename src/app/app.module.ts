@@ -7,7 +7,11 @@ import { SharedComponentsModule } from './shared/components/shared-components.mo
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedComponentsModule],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    SharedComponentsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
