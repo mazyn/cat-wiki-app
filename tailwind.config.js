@@ -3,7 +3,12 @@ module.exports = {
   content: ['./src/**/*.{html,ts}'],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        text: '#291507',
+        textLight: '#FFFFFF',
+      },
+    },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LandingPageRoutingModule } from './landing-page-routing.module';
-import { LandingPageComponent } from './landing-page.component';
-import { LandingPageService } from './landing-page.service';
+import { LandingPageComponent } from '../components/landing-page.component';
+import { LandingPageService } from '../services/landing-page.service';
 
 @NgModule({
   declarations: [LandingPageComponent],
