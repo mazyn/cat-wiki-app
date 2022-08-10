@@ -12,6 +12,10 @@ module.exports = {
         'hero-md': 'url(/assets/HeroImagemd.png)',
         'hero-sm': 'url(/assets/HeroImagesm.png)',
       },
+      backgroundColor: {
+        primary: '#291507',
+        secondary: '#E3E1DC',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

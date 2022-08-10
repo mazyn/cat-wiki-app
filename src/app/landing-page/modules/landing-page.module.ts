@@ -2,13 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LandingPageRoutingModule } from './landing-page-routing.module';
-import { LandingPageComponent } from '../components/landing-page.component';
 import { LandingPageService } from '../services/landing-page.service';
-import { LandingPageHeroComponent } from '../components/landing-page-hero/landing-page-hero.component';
+import {
+  LandingPageComponent,
+  LandingPageHeroComponent,
+  LandingPageMostSearchedComponent,
+} from '../components';
+import { SharedComponentsModule } from 'src/app/shared/components/shared-components.module';
 
 @NgModule({
-  declarations: [LandingPageComponent, LandingPageHeroComponent],
-  imports: [CommonModule, LandingPageRoutingModule],
+  declarations: [
+    LandingPageComponent,
+    LandingPageHeroComponent,
+    LandingPageMostSearchedComponent,
+  ],
+  imports: [CommonModule, LandingPageRoutingModule, SharedComponentsModule],
   providers: [LandingPageService],
 })
 export class LandingPageModule {}
