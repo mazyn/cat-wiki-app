@@ -1,12 +1,14 @@
-<div class="bg-secondary px-8 py-5">
+<div class="bg-secondary px-8 py-5 pb-12 rounded-b-[42px]">
   <div class="mb-4">
     <app-subheading size="xs">Most Searched Breeds</app-subheading>
   </div>
   <div class="mb-5 w-48">
     <app-title size="lg" leading="6">66+ Breeds for you to discover</app-title>
   </div>
-  <div *ngFor="let breed of breeds">
-    <img [src]="breed.imageUrl" />
-    <p>{{breed.name}}</p>
+  <div class="grid grid-cols-2 gap-x-4 gap-y-5">
+    <div *ngFor="let breed of breeds">
+      <img [src]="breed.imageUrl" class="object-center object-cover w-full h-[35vw] rounded-xl" />
+      <span class="block mt-2 text-primary text-xs font-semibold leading-5">{{breed.name}}</span>
+    </div>
   </div>
 </div>
