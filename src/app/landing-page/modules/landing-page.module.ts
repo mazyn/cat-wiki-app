@@ -9,6 +9,7 @@ import {
   LandingPageMostSearchedComponent,
 } from '../components';
 import { SharedComponentsModule } from 'src/app/shared/components/shared-components.module';
+import { SharedServicesModule } from 'src/app/shared/services/shared-services.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,12 @@ import { SharedComponentsModule } from 'src/app/shared/components/shared-compone
     LandingPageHeroComponent,
     LandingPageMostSearchedComponent,
   ],
-  imports: [CommonModule, LandingPageRoutingModule, SharedComponentsModule],
+  imports: [
+    CommonModule,
+    LandingPageRoutingModule,
+    SharedComponentsModule,
+    SharedServicesModule,
+  ],
   providers: [LandingPageService],
 })
 export class LandingPageModule {}

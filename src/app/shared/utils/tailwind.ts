@@ -13,10 +13,38 @@ type TailwindSize =
   | '8xl'
   | '9xl';
 
+type TailwindLeadingSize =
+  | ''
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '10'
+  | 'none'
+  | 'tight'
+  | 'snug'
+  | 'normal'
+  | 'relaxed'
+  | 'loose';
+
 const getTextSizeClass = (size: TailwindSize): string => {
   if (!size) return '';
 
   return `text-${size}`;
 };
 
-export { TailwindSize, getTextSizeClass };
+const getLeadingSizeClass = (size: TailwindLeadingSize): string => {
+  if (!size) return '';
+
+  return `leading-${size}`;
+};
+
+export {
+  TailwindSize,
+  TailwindLeadingSize,
+  getTextSizeClass,
+  getLeadingSizeClass,
+};

@@ -1,5 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { getTextSizeClass, TailwindSize } from '../../utils/tailwind';
+import {
+  getLeadingSizeClass,
+  getTextSizeClass,
+  TailwindLeadingSize,
+  TailwindSize,
+} from '../../utils/tailwind';
 
 @Component({
   selector: 'app-title',
@@ -8,10 +13,15 @@ import { getTextSizeClass, TailwindSize } from '../../utils/tailwind';
 })
 export class TitleComponent implements OnInit {
   @Input('size') size: TailwindSize = '';
-
-  getSizeClass = () => getTextSizeClass(this.size);
+  @Input('leading') leading: TailwindLeadingSize = '';
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  getCustomClasses(): string {
+    return [getTextSizeClass(this.size), getLeadingSizeClass(this.leading)]
+      .filter((c) => !!c)
+      .join(' ');
+  }
 }
