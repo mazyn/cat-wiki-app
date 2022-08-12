@@ -14,6 +14,7 @@ import {
 export class TitleComponent implements OnInit {
   @Input('size') size: TailwindSize = '';
   @Input('leading') leading: TailwindLeadingSize = '';
+  @Input('renderDash') renderDash: boolean = false;
 
   constructor() {}
 

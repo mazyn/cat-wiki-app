@@ -1,4 +1,6 @@
-<div>
+<div class="relative" [ngClass]="{'pt-6':renderDash}">
+  <span *ngIf="renderDash" class="block absolute w-12 h-[3px] bg-primary left-0 top-1 rounded-full"
+    aria-hidden="true"></span>
   <h1 [ngClass]="getCustomClasses()" class="text-primary font-bold">
     <ng-content></ng-content>
   </h1>
