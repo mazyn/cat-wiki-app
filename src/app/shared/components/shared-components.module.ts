@@ -5,6 +5,7 @@ import { ContainerComponent } from './container/container.component';
 import { HeaderComponent } from './header/header.component';
 import { SubheadingComponent } from './subheading/subheading.component';
 import { TitleComponent } from './title/title.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [CommonModule],
@@ -13,12 +14,14 @@ import { TitleComponent } from './title/title.component';
     HeaderComponent,
     SubheadingComponent,
     TitleComponent,
+    FooterComponent,
   ],
   exports: [
     ContainerComponent,
     HeaderComponent,
     SubheadingComponent,
     TitleComponent,
+    FooterComponent,
   ],
 })
 export class SharedComponentsModule {}
