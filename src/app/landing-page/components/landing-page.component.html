@@ -1,17 +1,44 @@
 <app-landing-page-hero></app-landing-page-hero>
+
 <app-landing-page-most-searched></app-landing-page-most-searched>
-<section class="mt-14">
-  <div class="mb-16">
-    <app-title [renderDash]="true" size="text-[40px]" leading="leading-[48px]">Why should you have a cat?</app-title>
+
+<section class="grid grid-cols-1 gap-y-16 mt-14 mb-7">
+  <div>
+    <div class="mb-16">
+      <app-title
+        [renderDash]="true"
+        size="text-[40px]"
+        leading="leading-[48px]"
+      >
+        Why should you have a cat?
+      </app-title>
+    </div>
+    <p class="text-primary font-medium text-lg leading-6 mb-6">
+      Having a cat around you can actually trigger the release of calming
+      chemicals in your body which lower your stress and anxiety levels
+    </p>
+    <a
+      class="flex items-center text-xs text-primary opacity-60 uppercase font-bold"
+      href="https://www.helpguide.org/articles/healthy-living/joys-of-owning-a-cat.htm"
+      target="__blank"
+      rel="noopener noreferrer"
+    >
+      <span class="mr-3">Read more</span>
+      <span class="material-icons !text-base">trending_flat</span>
+    </a>
   </div>
-  <p class="text-primary font-medium text-lg leading-6 mb-6">
-    Having a cat around you can actually trigger the release of calming chemicals in your body which lower your stress
-    and anxiety levels
-  </p>
-  <a class="flex items-center text-xs text-primary opacity-60 uppercase font-bold"
-    href="https://www.helpguide.org/articles/healthy-living/joys-of-owning-a-cat.htm" target="__blank"
-    rel="noopener noreferrer">
-    <span class="mr-3">Read more</span>
-    <span class="material-icons !text-base">trending_flat</span>
-  </a>
+
+  <div class="inline-flex flex-initial flex-wrap">
+    <div class="w-[54%]">
+      <figure class="p-2">
+        <img src="../../../assets/image2.png" />
+      </figure>
+      <figure class="w-[70%] p-2 mr-0 ml-auto">
+        <img src="../../../assets/image1.png" />
+      </figure>
+    </div>
+    <figure class="w-[46%] p-2">
+      <img src="../../../assets/image3.png" />
+    </figure>
+  </div>
 </section>
