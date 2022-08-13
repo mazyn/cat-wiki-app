@@ -2,23 +2,27 @@
 
 <app-landing-page-most-searched></app-landing-page-most-searched>
 
-<section class="grid grid-cols-1 gap-y-16 mt-14 mb-7">
+<section class="grid grid-cols-1 gap-y-16 mt-14 sm:mt-20 mb-7 sm:mb-14">
   <div>
     <div class="mb-16">
-      <app-title
-        [renderDash]="true"
-        size="text-[40px]"
-        leading="leading-[48px]"
-      >
-        Why should you have a cat?
-      </app-title>
+      <div class="relative pt-6">
+        <span
+          class="block absolute w-12 sm:w-16 h-[3px] bg-primary left-0 top-1 rounded-full"
+          aria-hidden="true"
+        ></span>
+        <h1
+          class="text-primary font-bold text-[40px] sm:text-5xl leading-[48px]"
+        >
+          Why should you have a cat?
+        </h1>
+      </div>
     </div>
     <p class="text-primary font-medium text-lg leading-6 mb-6">
       Having a cat around you can actually trigger the release of calming
       chemicals in your body which lower your stress and anxiety levels
     </p>
     <a
-      class="flex items-center text-xs text-primary opacity-60 uppercase font-bold"
+      class="flex items-center text-xs text-primary opacity-60 hover:opacity-100 uppercase font-bold"
       href="https://www.helpguide.org/articles/healthy-living/joys-of-owning-a-cat.htm"
       target="__blank"
       rel="noopener noreferrer"
@@ -28,17 +32,26 @@
     </a>
   </div>
 
-  <div class="inline-flex flex-initial flex-wrap">
+  <div class="inline-flex flex-initial flex-wrap w-full sm:w-[85%] mx-auto">
     <div class="w-[54%]">
       <figure class="p-2">
-        <img src="../../../assets/image2.png" />
+        <img
+          src="../../../assets/image2.png"
+          alt="Picture of a cat sleeping with its owner"
+        />
       </figure>
       <figure class="w-[70%] p-2 mr-0 ml-auto">
-        <img src="../../../assets/image1.png" />
+        <img
+          src="../../../assets/image1.png"
+          alt="Picture of a cat touching its owner's hands"
+        />
       </figure>
     </div>
     <figure class="w-[46%] p-2">
-      <img src="../../../assets/image3.png" />
+      <img
+        src="../../../assets/image3.png"
+        alt="Picture of a cat looking through a backpack's opening"
+      />
     </figure>
   </div>
 </section>

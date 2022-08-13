@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CatApiBreed } from 'src/app/shared/models';
+
+import { CatApiService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-landing-page-hero',
@@ -6,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page-hero.component.scss'],
 })
 export class LandingPageHeroComponent implements OnInit {
-  constructor() {}
+  breeds: CatApiBreed[] = [];
 
-  ngOnInit(): void {}
+  constructor(private readonly catApiService: CatApiService) {}
+
+  ngOnInit(): void {
+    this.getAllBreeds();
+  }
+
+  getAllBreeds(): void {
+    this.catApiService
+      .getAllBreeds()
+      .subscribe((breeds) => (this.breeds = breeds));
+  }
 }

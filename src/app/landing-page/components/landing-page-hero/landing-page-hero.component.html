@@ -1,14 +1,36 @@
-<section class="bg-no-repeat bg-cover bg-right bg-hero-sm md:bg-hero-md lg:bg-hero-lg px-8 py-5 rounded-t-[42px]">
-  <img src="../../../../assets/CatwikiLogoWhite.svg" alt="CatWiki logo" class="w-24 mb-3" />
-  <div class="w-[130px] mt-2">
-    <span class="text-white text-[10px] font-medium block leading-3 mb-5">
+<section
+  class="bg-no-repeat bg-cover bg-right sm:bg-[30%_center] bg-hero-sm md:bg-hero-md lg:bg-hero-lg px-8 sm:px-16 py-5 sm:py-12 rounded-t-[42px] sm:rounded-t-[28px]"
+>
+  <img
+    src="../../../../assets/CatwikiLogoWhite.svg"
+    alt="CatWiki logo"
+    class="w-24 sm:w-48 mb-3"
+  />
+  <div class="w-[130px] sm:w-[50%] mt-2">
+    <span
+      class="text-white text-[10px] sm:text-lg font-medium block leading-3 mb-5"
+    >
       Get to know more about your cat breed
     </span>
     <div class="mb-2">
       <button
-        class="flex flex-row items-center justify-between w-24 text-primary bg-white pl-4 pr-3 py-0.5 rounded-full">
-        <span class="text-xs font-medium">Search</span> <span class="material-icons !text-lg">search</span>
+        class="sm:hidden flex flex-row items-center justify-between w-24 text-primary bg-white pl-4 pr-3 py-0.5 rounded-full"
+      >
+        <span class="text-xs font-medium">Search</span>
+        <span class="material-icons !text-lg">search</span>
       </button>
+
+      <select
+        class="hidden sm:block w-[90%] text-primary text-xs py-3 px-4 rounded-full"
+        name="select-cat-breed"
+        aria-placeholder="Enter your breed..."
+      >
+        <option value="">Enter your breed</option>
+        <option *ngFor="let breed of breeds" [value]="breed.externalId">
+          {{ breed.name }}
+        </option>
+        <!-- TODO: Add search icon into this select -->
+      </select>
     </div>
   </div>
 </section>

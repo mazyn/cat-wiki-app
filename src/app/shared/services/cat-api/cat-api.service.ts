@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { catchError, Observable, take } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { Breed, CatApiBreedPhoto } from '../../models';
+import { Breed, CatApiBreed, CatApiBreedPhoto } from '../../models';
 import { httpErrorHandler } from '../../utils/http';
 
 @Injectable()
@@ -18,6 +18,15 @@ export class CatApiService {
 
   private getUrl(endpoint: string): string {
     return `${this.baseUrl}/${endpoint}`;
+  }
+
+  public getAllBreeds(): Observable<CatApiBreed[]> {
+    return this.httpClient
+      .get<CatApiBreed[]>(this.getUrl('cat-api/breeds'))
+      .pipe(
+        take(1),
+        catchError((e) => httpErrorHandler(e, this.toastr)),
+      );
   }
 
   public getMostSearchedBreeds(): Observable<Breed[]> {
