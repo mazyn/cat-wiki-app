@@ -2,40 +2,44 @@
   class="bg-secondary px-8 sm:px-16 py-5 sm:py-8 pb-12 sm:pb-16 rounded-b-[42px] sm:rounded-b-[28px]"
 >
   <div class="max-w-sm sm:max-w-full mx-auto">
-    <div class="mb-4">
+    <div class="mb-4 md:mb-6">
       <div class="relative pb-3">
         <span
-          class="block absolute w-10 sm:w-12 h-[3px] bg-primary left-0 bottom-1 rounded-full"
+          class="block absolute w-10 sm:w-12 md:w-14 h-[3px] bg-primary left-0 bottom-1 rounded-full"
           aria-hidden="true"
         ></span>
-        <h2 class="text-primary font-medium text-xs sm:text-sm">
+        <h2 class="text-primary font-medium text-xs sm:text-sm md:text-base">
           Most Searched Breeds
         </h2>
       </div>
     </div>
     <div class="flex flex-row items-end justify-between mb-5 sm:mb-12">
-      <div class="w-48 sm:w-80">
-        <h1 class="text-primary font-bold text-lg sm:text-3xl leading-6">
+      <div class="w-48 sm:w-80 md:w-96">
+        <h1
+          class="text-primary font-bold text-lg sm:text-3xl md:text-4xl leading-6"
+        >
           66+ Breeds for you to discover
         </h1>
       </div>
       <a
         href="#"
-        class="hidden sm:inline-flex items-center text-primary text-sm font-bold uppercase opacity-60 hover:opacity-100"
+        class="hidden sm:inline-flex items-center text-primary text-sm md:text-base font-bold uppercase opacity-60 hover:opacity-100"
       >
         See more
-        <span class="material-icons !text-base ml-1">trending_flat</span>
+        <span class="material-icons !text-base md:!text-lg ml-1">
+          trending_flat
+        </span>
       </a>
     </div>
     <div class="grid grid-cols-2 gap-x-4 sm:gap-x-7 gap-y-5 sm:gap-y-9">
       <div *ngFor="let breed of breeds">
         <img
           [src]="breed.imageUrl"
-          class="object-center object-cover w-full h-[35vw] sm:h-56 max-h-40 sm:max-h-full rounded-xl sm:rounded-2xl md:rounded-3xl"
+          class="object-center object-cover w-full h-[35vw] sm:h-56 md:h-72 max-h-40 sm:max-h-full rounded-xl sm:rounded-2xl md:rounded-3xl"
           alt="A photo of a cat breed"
         />
         <span
-          class="block mt-2 sm:mt-3 text-primary text-xs sm:text-sm font-semibold leading-5"
+          class="block mt-2 sm:mt-3 md:mt-4 text-primary text-xs sm:text-sm md:text-base font-semibold leading-5"
         >
           {{ breed.name }}
         </span>
