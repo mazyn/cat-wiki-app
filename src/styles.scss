@@ -11,10 +11,47 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
 
+// Splitting package
+@import 'splitting/dist/splitting.css';
+@import 'splitting/dist/splitting-cells.css';
+
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
+}
+
+@layer components {
+  .rainbow-text-animated .char {
+    animation: rainbow-colors 2s linear infinite;
+    animation-delay: calc(-2s * var(--char-percent));
+  }
+
+  .rainbow-underline .char {
+    text-decoration: underline;
+  }
+}
+
+/**
+ * Unfortunately, browsers try to take the shortest distance between transition/animation properties,
+ * so a simple `0turn` to `1turn` doesn't get the proper effect.
+ */
+@keyframes rainbow-colors {
+  0% {
+    color: #f65555;
+  }
+  25% {
+    color: #a6f655;
+  }
+  50% {
+    color: #55f6f6;
+  }
+  75% {
+    color: #a655f6;
+  }
+  100% {
+    color: #f65555;
+  }
 }
