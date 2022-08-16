@@ -1,5 +1,5 @@
 <section
-  class="bg-secondary px-8 sm:px-16 lg:px-20 xl:px-28 py-5 sm:py-8 lg:py-10 pb-12 sm:pb-16 lg:pb-24 xl:pb-28 rounded-b-[42px] sm:rounded-b-[28px]"
+  class="bg-secondary px-8 sm:px-16 lg:px-20 xl:px-28 py-5 sm:py-8 lg:py-10 pb-12 sm:pb-16 lg:pb-24 xl:pb-28 rounded-b-[42px] sm:rounded-b-[28px] 2xl:rounded-b-[42px]"
 >
   <div class="max-w-sm sm:max-w-full mx-auto">
     <div class="mb-4 md:mb-6 xl:mb-8">
@@ -41,11 +41,11 @@
       <div *ngFor="let breed of breeds; let i = index" class="relative">
         <span
           *ngIf="i === 0"
-          class="hidden lg:block absolute w-6 h-[135px] xl:h-44 rounded-full bg-accent -left-3 top-[12%] z-0"
+          class="hidden lg:block absolute w-6 2xl:w-8 h-[135px] xl:h-44 2xl:h-[233px] rounded-full bg-accent -left-3 2xl:-left-4 top-[12%] z-0"
         ></span>
         <img
           [src]="breed.imageUrl"
-          class="object-center object-cover w-full h-[35vw] sm:h-56 md:h-72 lg:h-44 xl:h-[220px] max-h-40 sm:max-h-full rounded-xl sm:rounded-2xl md:rounded-3xl relative z-10"
+          class="object-center object-cover w-full h-[35vw] sm:h-56 md:h-72 lg:h-44 xl:h-[220px] 2xl:h-[284px] max-h-40 sm:max-h-full rounded-xl sm:rounded-2xl md:rounded-3xl relative z-10"
           alt="A photo of a cat breed"
         />
         <span
