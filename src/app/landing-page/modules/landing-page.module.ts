@@ -10,6 +10,7 @@ import {
 } from '../components';
 import { SharedComponentsModule } from 'src/app/shared/components/shared-components.module';
 import { SharedServicesModule } from 'src/app/shared/services/shared-services.module';
+import { SharedDirectivesModule } from 'src/app/shared/directives/shared-directives.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SharedServicesModule } from 'src/app/shared/services/shared-services.mo
     CommonModule,
     LandingPageRoutingModule,
     SharedComponentsModule,
+    SharedDirectivesModule,
     SharedServicesModule,
   ],
   providers: [LandingPageService],

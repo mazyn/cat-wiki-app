@@ -9,8 +9,10 @@ import { SharedComponentsModule } from './shared/components/shared-components.mo
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
     BrowserAnimationsModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    SharedComponentsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       maxOpened: 3,
@@ -18,8 +20,6 @@ import { SharedComponentsModule } from './shared/components/shared-components.mo
       progressBar: true,
       timeOut: 3000,
     }),
-    AppRoutingModule,
-    SharedComponentsModule,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

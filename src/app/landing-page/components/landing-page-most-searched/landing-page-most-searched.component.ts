@@ -10,12 +10,19 @@ import { CatApiService } from 'src/app/shared/services';
 })
 export class LandingPageMostSearchedComponent implements OnInit {
   breeds: Breed[] = [];
+  isLoading: boolean = false;
 
   constructor(private readonly catApiService: CatApiService) {}
 
   ngOnInit(): void {
-    this.catApiService.getMostSearchedBreeds().subscribe((breeds) => {
-      this.breeds = breeds.slice(0, 4);
+    this.isLoading = true;
+    this.catApiService.getMostSearchedBreeds().subscribe({
+      next: (breeds) => {
+        this.breeds = breeds.slice(0, 4);
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
     });
   }
 }
