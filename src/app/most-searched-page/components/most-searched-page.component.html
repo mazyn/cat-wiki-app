@@ -1,1 +1,27 @@
-<p>most-searched-page works!</p>
+<h1 class="text-4xl font-bold mb-16">Top 10 most searched breeds</h1>
+<ul *skeleton="isLoading; repeat: 5; className: 'w-full h-48 mb-8 rounded-2xl'">
+  <li *ngFor="let breed of mostSearchedBreeds; let i = index">
+    <div class="grid grid-cols-1">
+      <div class="relative mb-14">
+        <picture>
+          <img
+            [src]="breed.imageUrl"
+            [alt]="'A photo of a(n) ' + breed.name + ' cat'"
+            class="w-full h-48 object-cover rounded-2xl"
+          />
+        </picture>
+        <div class="px-3 py-4">
+          <h2 class="text-3xl font-semibold mb-4">
+            {{ i + 1 }}. {{ breed.name }}
+          </h2>
+          <span class="text-sm font-medium">
+            {{ breed.description }}
+          </span>
+        </div>
+        <span
+          class="absolute w-1/4 h-[6px] bg-accent rounded-full right-0 bottom-0 mr-4 opacity-50"
+        ></span>
+      </div>
+    </div>
+  </li>
+</ul>
