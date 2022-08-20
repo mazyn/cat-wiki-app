@@ -27,8 +27,6 @@ export class RectangleSkeletonComponent {
     const host = this.host.nativeElement;
 
     if (this.className) {
-      console.log(this.className);
-
       host.classList.add(...this.className.split(' '));
     }
 

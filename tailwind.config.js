@@ -16,6 +16,8 @@ module.exports = {
         primary: '#291507',
         secondary: '#E3E1DC',
         accent: '#DEC68B',
+        indicator: '#544439',
+        indicatorGray: '#E0E0E0',
       },
     },
   },

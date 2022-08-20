@@ -41,9 +41,9 @@ export class CatApiService {
   public getBreedPhotos(
     externalId: string,
     limit?: number,
-  ): Observable<CatApiBreedPhoto[]> {
+  ): Observable<CatApiBreedPhoto> {
     return this.httpClient
-      .get<CatApiBreedPhoto[]>(this.getUrl('cat-api/breed-photos'), {
+      .get<CatApiBreedPhoto>(this.getUrl('cat-api/breed-photos'), {
         params: {
           b: externalId,
           limit: limit ?? '',

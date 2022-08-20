@@ -18,10 +18,6 @@ export class SkeletonDirective {
 
   constructor(private tpl: TemplateRef<any>, private vcr: ViewContainerRef) {}
 
-  ngAfterViewInit() {
-    console.log(this.isLoading, this.size);
-  }
-
   ngOnChanges(changes: SimpleChanges) {
     if (changes['isLoading']) {
       this.vcr.clear();
