@@ -17,6 +17,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'breed/:id',
+    loadChildren: () =>
+      import('./breed-details/modules/breed-details.module').then(
+        (m) => m.BreedDetailsModule,
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

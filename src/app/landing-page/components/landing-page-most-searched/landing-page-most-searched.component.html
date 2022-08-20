@@ -49,16 +49,20 @@
             *ngIf="i === 0"
             class="hidden lg:block absolute w-6 2xl:w-8 h-[135px] xl:h-44 2xl:h-[233px] rounded-full bg-accent -left-3 2xl:-left-4 top-[12%] z-0"
           ></span>
-          <img
-            [src]="breed.imageUrl"
-            class="object-center object-cover w-full h-[35vw] sm:h-56 md:h-72 lg:h-44 xl:h-[220px] 2xl:h-[284px] max-h-40 sm:max-h-full rounded-xl sm:rounded-2xl md:rounded-3xl relative z-10"
-            alt="A photo of a cat breed"
-          />
-          <span
-            class="block mt-2 sm:mt-3 md:mt-4 lg:mt-3 xl:mt-4 text-xs sm:text-sm md:text-base lg:text-lg font-semibold leading-5"
-          >
-            {{ breed.name }}
-          </span>
+          <a [routerLink]="['breed', breed.externalId]">
+            <img
+              [src]="breed.imageUrl"
+              class="object-center object-cover w-full h-[35vw] sm:h-56 md:h-72 lg:h-44 xl:h-[220px] 2xl:h-[284px] max-h-40 sm:max-h-full rounded-xl sm:rounded-2xl md:rounded-3xl relative z-10"
+              alt="A photo of a cat breed"
+            />
+          </a>
+          <a [routerLink]="['breed', breed.externalId]">
+            <span
+              class="block mt-2 sm:mt-3 md:mt-4 lg:mt-3 xl:mt-4 text-xs sm:text-sm md:text-base lg:text-lg font-semibold leading-5"
+            >
+              {{ breed.name }}
+            </span>
+          </a>
         </div>
       </ng-container>
     </div>
