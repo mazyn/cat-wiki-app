@@ -34,7 +34,7 @@
     <h2 class="font-semibold text-2xl sm:text-3xl mb-8">Other photos</h2>
     <div class="grid grid-cols-2 gap-5 sm:gap-8 md:grid-cols-3">
       <img
-        class="w-full h-[40vw] sm:h-64 sm:h-52 object-cover object-center rounded-xl"
+        class="w-full h-[40vw] sm:h-64 md:h-52 object-cover object-center rounded-xl"
         *ngFor="let photo of breed?.photos?.slice(1)"
         [src]="photo"
         alt="A photo of the cat breed"
