@@ -17,6 +17,7 @@ import {
       class="backdrop:bg-gray-800 backdrop:opacity-70"
       #dialog
       (click)="handleClick($event)"
+      (cancel)="handleCancelEvent($event)"
     >
       <ng-content></ng-content>
     </dialog>
@@ -25,6 +26,7 @@ import {
 export class DialogComponent implements OnInit, OnChanges {
   @Input() show: boolean = false;
   @Output() onBackdropClick: EventEmitter<void> = new EventEmitter<void>();
+  @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
 
   @ViewChild('dialog', { static: true })
   private dialogEl: ElementRef | undefined;
@@ -67,5 +69,10 @@ export class DialogComponent implements OnInit, OnChanges {
       event.clientX <= rect.left + rect.width;
 
     return !isInDialog;
+  }
+
+  handleCancelEvent(event: Event) {
+    event.preventDefault();
+    this.onCancel.emit();
   }
 }

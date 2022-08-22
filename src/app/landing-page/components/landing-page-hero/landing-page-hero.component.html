@@ -35,6 +35,10 @@
   </div>
 </section>
 
-<app-dialog [show]="showSearchDialog" (onBackdropClick)="toggleSearchDialog()">
+<app-dialog
+  [show]="showSearchDialog"
+  (onBackdropClick)="toggleSearchDialog()"
+  (onCancel)="toggleSearchDialog()"
+>
   search cats here!
 </app-dialog>
