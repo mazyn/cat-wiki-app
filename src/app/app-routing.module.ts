@@ -19,8 +19,8 @@ const routes: Routes = [
   {
     path: 'breed/:id',
     loadChildren: () =>
-      import('./breed-details/modules/breed-details.module').then(
-        (m) => m.BreedDetailsModule,
+      import('./breed-details-page/modules/breed-details-page.module').then(
+        (m) => m.BreedDetailsPageModule,
       ),
   },
   {

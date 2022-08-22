@@ -28,10 +28,10 @@
       ></ul>
       <ul class="text-xs sm:text-base leading-5">
         <li class="mb-3 sm:mb-6" *ngFor="let indicator of segmentedIndicators">
-          <app-stats-indicator
+          <app-breed-details-stats-indicator
             [statusName]="indicator.name"
             [currentLevel]="getSegmentCurrentValue(indicator.acessor)"
-          ></app-stats-indicator>
+          ></app-breed-details-stats-indicator>
         </li>
       </ul>
     </div>

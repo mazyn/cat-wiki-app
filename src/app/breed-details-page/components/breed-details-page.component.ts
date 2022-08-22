@@ -8,10 +8,10 @@ import { CatApiService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-breed-details',
-  templateUrl: './breed-details.component.html',
-  styleUrls: ['./breed-details.component.scss'],
+  templateUrl: './breed-details-page.component.html',
+  styleUrls: ['./breed-details-page.component.scss'],
 })
-export class BreedDetailsComponent implements OnInit {
+export class BreedDetailsPageComponent implements OnInit {
   breed: CatApiBreedPhoto | undefined;
   isLoading: boolean = false;
   segmentedIndicators: { name: string; acessor: string }[] = [
