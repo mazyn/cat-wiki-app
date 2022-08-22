@@ -64,7 +64,7 @@ export class BreedDetailsComponent implements OnInit {
     ]
       .map(
         ([title, content]) =>
-          `<li class="mb-3">
+          `<li class="mb-3 sm:mb-6">
             <span class="font-bold mr-1">${title}</span>
             <span>${content}</span>
           </li>`,
