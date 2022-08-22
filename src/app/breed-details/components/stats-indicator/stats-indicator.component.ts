@@ -10,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
       <span class="grid grid-cols-5 gap-x-2 md:flex-[3] xl:flex-[5]">
         <span
           *ngFor="let i of getTotalLevels()"
-          class="inline-block h-2 sm:h-[10px] rounded-full"
+          class="inline-block h-2 sm:h-[10px] 2xl:h-3 rounded-full"
           [ngClass]="currentLevel > i ? 'bg-indicator' : 'bg-indicatorGray'"
         ></span>
       </span>

@@ -1,5 +1,5 @@
 <div
-  class="mb-20 lg:mb-28 md:flex md:flex-wrap"
+  class="md:flex md:flex-wrap 2xl:justify-center mb-20 lg:mb-28 2xl:mb-32"
   *skeleton="isLoading; className: 'w-full h-[60vw] md:h-80 rounded-3xl'"
 >
   <section
@@ -15,13 +15,13 @@
     ></span>
   </section>
   <section
-    class="md:flex-1 lg:w-[65%] xl:w-full px-4 xl:px-28 md:pl-12 lg:pl-20 lg:pr-6 mb-14 sm:mb-16"
+    class="md:flex-1 2xl:flex-none lg:w-[60%] xl:w-full 2xl:w-[60%] px-4 xl:px-28 md:pl-12 lg:pl-20 lg:pr-6 mb-14 sm:mb-16"
   >
     <h2 class="font-semibold text-3xl sm:text-4xl mb-4">{{ breed?.name }}</h2>
     <p class="font-medium leading-6 text-sm sm:text-lg mb-8">
       {{ breed?.description }}
     </p>
-    <div class="sm:w-[80%] md:w-auto lg:w-[85%]">
+    <div class="sm:w-[80%] md:w-auto lg:w-[85%] 2xl:w-[75%]">
       <ul
         class="text-xs sm:text-base leading-5"
         [innerHTML]="getSimpleDetailList()"
@@ -36,13 +36,13 @@
       </ul>
     </div>
   </section>
-  <section class="px-4 lg:px-6">
+  <section class="px-4 lg:px-6 2xl:px-10">
     <h2 class="font-semibold text-2xl sm:text-3xl mb-8">Other photos</h2>
     <div
-      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-8 xl:gap-10"
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-8 xl:gap-10 2xl:gap-x-12 2xl:gap-y-14"
     >
       <img
-        class="w-full h-[40vw] sm:h-64 md:h-52 xl:h-[270px] object-cover object-center rounded-xl"
+        class="w-full h-[40vw] sm:h-64 md:h-52 xl:h-[270px] 2xl:h-[320px] object-cover object-center rounded-xl"
         *ngFor="let photo of breed?.photos?.slice(1)"
         [src]="photo"
         alt="A photo of the cat breed"
