@@ -1,10 +1,12 @@
 <div
-  class="mb-20 md:flex md:flex-wrap"
+  class="mb-20 lg:mb-28 md:flex md:flex-wrap"
   *skeleton="isLoading; className: 'w-full h-[60vw] md:h-80 rounded-3xl'"
 >
-  <section class="relative pb-16 md:pb-0 md:pl-4 md:flex-none md:w-64">
+  <section
+    class="relative pb-16 md:pb-0 md:pl-4 lg:pl-6 md:flex-none md:w-64 lg:w-[35%]"
+  >
     <img
-      class="w-full h-[60vw] sm:h-[420px] md:h-60 object-cover object-center rounded-3xl"
+      class="w-full h-[60vw] sm:h-[420px] md:h-60 lg:h-80 object-cover object-center rounded-3xl"
       [src]="getBreedPhoto()"
       [alt]="'A photo of the ' + breed?.name + ' breed'"
     />
@@ -12,27 +14,31 @@
       class="md:hidden w-1/3 h-2 rounded-full bg-accent opacity-50 absolute bottom-8 left-1/2 -translate-x-1/2 mx-auto"
     ></span>
   </section>
-  <section class="px-4 mb-14 sm:mb-16 md:flex-1 md:pl-12">
+  <section
+    class="px-4 mb-14 sm:mb-16 md:flex-1 md:pl-12 lg:pl-20 lg:pr-6 lg:w-[65%]"
+  >
     <h2 class="font-semibold text-3xl sm:text-4xl mb-4">{{ breed?.name }}</h2>
     <p class="font-medium leading-6 text-sm sm:text-lg mb-8">
       {{ breed?.description }}
     </p>
-    <ul
-      class="text-xs sm:text-base leading-5"
-      [innerHTML]="getSimpleDetailList()"
-    ></ul>
-    <ul class="text-xs sm:text-base leading-5">
-      <li class="mb-3 sm:mb-6" *ngFor="let indicator of segmentedIndicators">
-        <app-stats-indicator
-          [statusName]="indicator.name"
-          [currentLevel]="getSegmentCurrentValue(indicator.acessor)"
-        ></app-stats-indicator>
-      </li>
-    </ul>
+    <div class="sm:w-[80%] md:w-auto lg:w-[85%]">
+      <ul
+        class="text-xs sm:text-base leading-5"
+        [innerHTML]="getSimpleDetailList()"
+      ></ul>
+      <ul class="text-xs sm:text-base leading-5">
+        <li class="mb-3 sm:mb-6" *ngFor="let indicator of segmentedIndicators">
+          <app-stats-indicator
+            [statusName]="indicator.name"
+            [currentLevel]="getSegmentCurrentValue(indicator.acessor)"
+          ></app-stats-indicator>
+        </li>
+      </ul>
+    </div>
   </section>
-  <section class="px-4">
+  <section class="px-4 lg:px-6">
     <h2 class="font-semibold text-2xl sm:text-3xl mb-8">Other photos</h2>
-    <div class="grid grid-cols-2 gap-5 sm:gap-8 md:grid-cols-3">
+    <div class="grid grid-cols-2 gap-5 sm:gap-8 md:grid-cols-3 lg:grid-cols-4">
       <img
         class="w-full h-[40vw] sm:h-64 md:h-52 object-cover object-center rounded-xl"
         *ngFor="let photo of breed?.photos?.slice(1)"
