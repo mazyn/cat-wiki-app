@@ -9,7 +9,6 @@ import { CatApiService } from 'src/app/shared/services';
 @Component({
   selector: 'app-breed-details',
   templateUrl: './breed-details-page.component.html',
-  styleUrls: ['./breed-details-page.component.scss'],
 })
 export class BreedDetailsPageComponent implements OnInit {
   breed: CatApiBreedPhoto | undefined;

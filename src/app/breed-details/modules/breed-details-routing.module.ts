@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BreedDetailsPageComponent } from '../components/breed-details-page.component';
+import { BreedDetailsPageComponent } from '../pages/breed-details-page.component';
 
 const routes: Routes = [
   {

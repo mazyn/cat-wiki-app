@@ -6,7 +6,6 @@ import { CatApiService } from 'src/app/shared/services';
 @Component({
   selector: 'app-most-searched-page',
   templateUrl: './most-searched-page.component.html',
-  styleUrls: ['./most-searched-page.component.scss'],
 })
 export class MostSearchedPageComponent implements OnInit {
   mostSearchedBreeds: Breed[] = [];

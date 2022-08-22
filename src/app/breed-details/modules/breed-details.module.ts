@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BreedDetailsPageRoutingModule } from './breed-details-page-routing.module';
-import { BreedDetailsPageComponent } from '../components/breed-details-page.component';
+import { BreedDetailsPageRoutingModule } from './breed-details-routing.module';
 import { SharedDirectivesModule } from 'src/app/shared/directives/shared-directives.module';
 import { SharedServicesModule } from 'src/app/shared/services/shared-services.module';
-import { BreedDetailsStatsIndicatorComponent } from '../components/breed-details-stats-indicator/breed-details-stats-indicator.component';
+import { BreedDetailsPageComponent } from '../pages/breed-details-page.component';
+import { BreedDetailsStatsIndicatorComponent } from '../components';
 
 @NgModule({
   imports: [
