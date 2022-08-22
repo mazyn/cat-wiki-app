@@ -3,14 +3,18 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-stats-indicator',
   template: `
-    <span class="font-bold inline-block mb-1">{{ statusName }}:</span>
-    <span class="grid grid-cols-5 gap-x-2">
-      <span
-        *ngFor="let i of getTotalLevels()"
-        class="inline-block h-2 rounded-full"
-        [ngClass]="currentLevel > i ? 'bg-indicator' : 'bg-indicatorGray'"
-      ></span>
-    </span>
+    <div class="md:flex md:items-center">
+      <span class="font-bold inline-block mb-1 md:mb-0 md:flex-[2]"
+        >{{ statusName }}:</span
+      >
+      <span class="grid grid-cols-5 gap-x-2 md:flex-[3]">
+        <span
+          *ngFor="let i of getTotalLevels()"
+          class="inline-block h-2 md:h-[10px] rounded-full"
+          [ngClass]="currentLevel > i ? 'bg-indicator' : 'bg-indicatorGray'"
+        ></span>
+      </span>
+    </div>
   `,
   styles: [],
 })

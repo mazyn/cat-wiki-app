@@ -60,7 +60,7 @@ export class BreedDetailsComponent implements OnInit {
     return [
       ['Temperament:', this.breed?.temperament],
       ['Origin:', this.breed?.origin],
-      ['Life Span:', this.breed?.lifeSpan],
+      ['Life Span:', `${this.breed?.lifeSpan} years`],
     ]
       .map(
         ([title, content]) =>
