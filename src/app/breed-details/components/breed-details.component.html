@@ -3,10 +3,10 @@
   *skeleton="isLoading; className: 'w-full h-[60vw] md:h-80 rounded-3xl'"
 >
   <section
-    class="relative pb-16 md:pb-0 md:pl-4 lg:pl-6 md:flex-none md:w-64 lg:w-[35%]"
+    class="relative pb-16 md:pb-0 md:pl-4 lg:pl-6 md:flex-none md:w-64 lg:w-[35%] xl:w-[425px]"
   >
     <img
-      class="w-full h-[60vw] sm:h-[420px] md:h-60 lg:h-80 object-cover object-center rounded-3xl"
+      class="w-full xl:w-[370px] h-[60vw] sm:h-[420px] md:h-60 lg:h-80 xl:h-[370px] xl:ml-auto object-cover object-center rounded-3xl"
       [src]="getBreedPhoto()"
       [alt]="'A photo of the ' + breed?.name + ' breed'"
     />
@@ -15,7 +15,7 @@
     ></span>
   </section>
   <section
-    class="px-4 mb-14 sm:mb-16 md:flex-1 md:pl-12 lg:pl-20 lg:pr-6 lg:w-[65%]"
+    class="md:flex-1 lg:w-[65%] xl:w-full px-4 xl:px-28 md:pl-12 lg:pl-20 lg:pr-6 mb-14 sm:mb-16"
   >
     <h2 class="font-semibold text-3xl sm:text-4xl mb-4">{{ breed?.name }}</h2>
     <p class="font-medium leading-6 text-sm sm:text-lg mb-8">
@@ -38,9 +38,11 @@
   </section>
   <section class="px-4 lg:px-6">
     <h2 class="font-semibold text-2xl sm:text-3xl mb-8">Other photos</h2>
-    <div class="grid grid-cols-2 gap-5 sm:gap-8 md:grid-cols-3 lg:grid-cols-4">
+    <div
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-8 xl:gap-10"
+    >
       <img
-        class="w-full h-[40vw] sm:h-64 md:h-52 object-cover object-center rounded-xl"
+        class="w-full h-[40vw] sm:h-64 md:h-52 xl:h-[270px] object-cover object-center rounded-xl"
         *ngFor="let photo of breed?.photos?.slice(1)"
         [src]="photo"
         alt="A photo of the cat breed"

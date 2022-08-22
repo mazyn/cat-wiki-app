@@ -4,10 +4,10 @@ import { Component, Input, OnInit } from '@angular/core';
   selector: 'app-stats-indicator',
   template: `
     <div class="md:flex md:items-center">
-      <span class="font-bold inline-block mb-1 md:mb-0 md:flex-[2]"
+      <span class="font-bold inline-block mb-1 md:mb-0 md:flex-[2] xl:flex-[3]"
         >{{ statusName }}:</span
       >
-      <span class="grid grid-cols-5 gap-x-2 md:flex-[3]">
+      <span class="grid grid-cols-5 gap-x-2 md:flex-[3] xl:flex-[5]">
         <span
           *ngFor="let i of getTotalLevels()"
           class="inline-block h-2 sm:h-[10px] rounded-full"
