@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { ContainerComponent } from './container/container.component';
+import { DialogComponent } from './dialog/dialog.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { RectangleSkeletonComponent } from './skeletons/rectangle-skeleton.component';
@@ -13,6 +14,7 @@ import { TitleComponent } from './title/title.component';
   imports: [CommonModule, RouterModule],
   declarations: [
     ContainerComponent,
+    DialogComponent,
     FooterComponent,
     HeaderComponent,
     RectangleSkeletonComponent,
@@ -21,6 +23,7 @@ import { TitleComponent } from './title/title.component';
   ],
   exports: [
     ContainerComponent,
+    DialogComponent,
     FooterComponent,
     HeaderComponent,
     RectangleSkeletonComponent,

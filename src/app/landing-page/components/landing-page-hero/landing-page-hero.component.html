@@ -15,11 +15,11 @@
     <div>
       <button
         class="sm:hidden flex flex-row items-center justify-between w-24 bg-white pl-4 pr-3 py-0.5 rounded-full"
+        (click)="toggleSearchDialog()"
       >
         <span class="text-xs font-medium">Search</span>
         <span class="material-icons !text-lg">search</span>
       </button>
-
       <select
         class="hidden sm:block w-[90%] md:w-full text-xs md:text-sm lg:text-lg py-3 lg:py-4 xl:py-5 px-4 lg:px-7 rounded-full"
         name="select-cat-breed"
@@ -34,3 +34,7 @@
     </div>
   </div>
 </section>
+
+<app-dialog [show]="showSearchDialog" (onBackdropClick)="toggleSearchDialog()">
+  search cats here!
+</app-dialog>
