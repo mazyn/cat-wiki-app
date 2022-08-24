@@ -106,6 +106,14 @@ body {
       @apply hidden;
     }
   }
+
+  .ng-spinner-loader {
+    @apply right-3;
+
+    + .ng-arrow-wrapper {
+      @apply hidden;
+    }
+  }
 }
 
 .ng-select.ng-select__custom .ng-dropdown-panel {

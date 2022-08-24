@@ -48,6 +48,7 @@
     notFoundText="Breed not found"
     [isOpen]="true"
     [clearable]="false"
+    [loading]="isLoading"
   >
     <ng-option *ngFor="let b of breeds" [value]="b.externalId">
       {{ b.name }}

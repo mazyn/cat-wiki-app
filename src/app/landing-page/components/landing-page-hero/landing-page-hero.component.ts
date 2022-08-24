@@ -10,6 +10,7 @@ import { CatApiService } from 'src/app/shared/services';
 export class LandingPageHeroComponent implements OnInit {
   breeds: CatApiBreed[] = [];
   selectedBreed: string | undefined;
+  isLoading: boolean = false;
   showSearchDialog: boolean = true;
 
   constructor(private readonly catApiService: CatApiService) {}
@@ -19,9 +20,11 @@ export class LandingPageHeroComponent implements OnInit {
   }
 
   getAllBreeds(): void {
-    this.catApiService
-      .getAllBreeds()
-      .subscribe((breeds) => (this.breeds = breeds));
+    this.isLoading = true;
+    this.catApiService.getAllBreeds().subscribe({
+      next: (breeds) => (this.breeds = breeds),
+      complete: () => (this.isLoading = false),
+    });
   }
 
   toggleSearchDialog(): void {
