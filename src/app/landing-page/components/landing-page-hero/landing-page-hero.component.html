@@ -49,6 +49,7 @@
     [isOpen]="true"
     [clearable]="false"
     [loading]="isLoading"
+    (change)="handleSelectedBreed()"
   >
     <ng-option *ngFor="let b of breeds" [value]="b.externalId">
       {{ b.name }}

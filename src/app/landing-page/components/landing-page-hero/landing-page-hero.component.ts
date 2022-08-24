@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CatApiBreed } from 'src/app/shared/models';
+import { Router } from '@angular/router';
 
+import { CatApiBreed } from 'src/app/shared/models';
 import { CatApiService } from 'src/app/shared/services';
 
 @Component({
@@ -11,9 +12,12 @@ export class LandingPageHeroComponent implements OnInit {
   breeds: CatApiBreed[] = [];
   selectedBreed: string | undefined;
   isLoading: boolean = false;
-  showSearchDialog: boolean = true;
+  showSearchDialog: boolean = false;
 
-  constructor(private readonly catApiService: CatApiService) {}
+  constructor(
+    private readonly catApiService: CatApiService,
+    private readonly router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.getAllBreeds();
@@ -31,5 +35,10 @@ export class LandingPageHeroComponent implements OnInit {
     console.log('toggle!');
 
     this.showSearchDialog = !this.showSearchDialog;
+  }
+
+  handleSelectedBreed(): void {
+    // TODO: Tag breed as searched before navigating
+    this.router.navigateByUrl(`/breed/${this.selectedBreed}`).then(() => {});
   }
 }
