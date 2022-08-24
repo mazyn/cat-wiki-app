@@ -23,14 +23,6 @@ import {
         class="rounded-xl bg-white h-full p-4 mx-auto"
         [ngClass]="customClasses"
       >
-        <div class="w-full flex justify-end mb-6">
-          <button
-            class="relative z-10 material-icons bg-gray-100 hover:bg-gray-300 focus:bg-gray-200 focus:outline-1 focus:outline-gray-700 rounded-lg p-2"
-            (click)="handleCancelEvent($event)"
-          >
-            close
-          </button>
-        </div>
         <ng-content></ng-content>
       </section>
     </dialog>

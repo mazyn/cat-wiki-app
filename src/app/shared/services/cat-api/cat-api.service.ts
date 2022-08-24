@@ -54,4 +54,14 @@ export class CatApiService {
         catchError((e) => httpErrorHandler(e, this.toastr)),
       );
   }
+
+  public increaseBreedSearchCount(breedId: string): void {
+    this.httpClient
+      .patch(this.getUrl('breed/searched'), {
+        externalId: breedId,
+      })
+      .pipe(catchError((e) => httpErrorHandler(e, this.toastr)))
+      .subscribe(() => {})
+      .unsubscribe();
+  }
 }

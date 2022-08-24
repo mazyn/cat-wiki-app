@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgSelectComponent } from '@ng-select/ng-select';
 
 import { CatApiBreed } from 'src/app/shared/models';
 import { CatApiService } from 'src/app/shared/services';
@@ -9,6 +10,8 @@ import { CatApiService } from 'src/app/shared/services';
   templateUrl: './landing-page-hero.component.html',
 })
 export class LandingPageHeroComponent implements OnInit {
+  @ViewChild('ngSelect') ngSelect: NgSelectComponent | undefined;
+
   breeds: CatApiBreed[] = [];
   selectedBreed: string | undefined;
   isLoading: boolean = false;
@@ -31,14 +34,17 @@ export class LandingPageHeroComponent implements OnInit {
     });
   }
 
-  toggleSearchDialog(): void {
-    console.log('toggle!');
+  toggleSearchDialog(e?: Event): void {
+    e?.preventDefault();
+    console.log('toggleSearchDialog');
 
     this.showSearchDialog = !this.showSearchDialog;
+    if (this.showSearchDialog) this.ngSelect?.focus();
   }
 
   handleSelectedBreed(): void {
-    // TODO: Tag breed as searched before navigating
+    if (!this.selectedBreed) return;
+    this.catApiService.increaseBreedSearchCount(this.selectedBreed);
     this.router.navigateByUrl(`/breed/${this.selectedBreed}`).then(() => {});
   }
 }
