@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
+  OnDestroy,
   Output,
   SimpleChanges,
   ViewChild,
@@ -14,16 +14,30 @@ import {
   selector: 'app-dialog',
   template: `
     <dialog
-      class="backdrop:bg-gray-800 backdrop:opacity-70"
+      class="backdrop:bg-gray-800 backdrop:opacity-70 bg-transparent w-full relative z-0 p-0"
       #dialog
       (click)="handleClick($event)"
       (cancel)="handleCancelEvent($event)"
     >
-      <ng-content></ng-content>
+      <section
+        class="rounded-xl bg-white h-full p-4 mx-auto"
+        [ngClass]="customClasses"
+      >
+        <div class="w-full flex justify-end mb-6">
+          <button
+            class="relative z-10 material-icons bg-gray-100 hover:bg-gray-300 focus:bg-gray-200 focus:outline-1 focus:outline-gray-700 rounded-lg p-2"
+            (click)="handleCancelEvent($event)"
+          >
+            close
+          </button>
+        </div>
+        <ng-content></ng-content>
+      </section>
     </dialog>
   `,
 })
-export class DialogComponent implements OnInit, OnChanges {
+export class DialogComponent implements OnChanges, OnDestroy {
+  @Input() customClasses: string | string[] = '';
   @Input() show: boolean = false;
   @Output() onBackdropClick: EventEmitter<void> = new EventEmitter<void>();
   @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
@@ -32,8 +46,6 @@ export class DialogComponent implements OnInit, OnChanges {
   private dialogEl: ElementRef | undefined;
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
     this.show = changes['show'].currentValue;
@@ -45,10 +57,28 @@ export class DialogComponent implements OnInit, OnChanges {
   private toggleDialog(): void {
     if (this.show) {
       this.dialogEl?.nativeElement.showModal();
+      this.lockScroll();
       return;
     }
 
+    this.unlockScroll();
     this.dialogEl?.nativeElement.close();
+  }
+
+  private lockScroll(): void {
+    const body = document.querySelector('body');
+    if (!body) return;
+    body.style.overflowY = 'hidden';
+  }
+
+  private unlockScroll(): void {
+    const body = document.querySelector('body');
+    if (!body) return;
+    body.style.overflowY = 'auto';
+  }
+
+  ngOnDestroy(): void {
+    this.unlockScroll();
   }
 
   handleClick(event: MouseEvent): void {
@@ -71,7 +101,7 @@ export class DialogComponent implements OnInit, OnChanges {
     return !isInDialog;
   }
 
-  handleCancelEvent(event: Event) {
+  handleCancelEvent(event: Event): void {
     event.preventDefault();
     this.onCancel.emit();
   }

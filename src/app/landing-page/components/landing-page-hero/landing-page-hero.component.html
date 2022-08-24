@@ -36,9 +36,21 @@
 </section>
 
 <app-dialog
+  customClasses="h-[400px] max-w-[375px]"
   [show]="showSearchDialog"
   (onBackdropClick)="toggleSearchDialog()"
   (onCancel)="toggleSearchDialog()"
 >
-  search cats here!
+  <ng-select
+    class="ng-select__custom z-0"
+    [(ngModel)]="selectedBreed"
+    placeholder="Search for the breed name..."
+    notFoundText="Breed not found"
+    [isOpen]="true"
+    [clearable]="false"
+  >
+    <ng-option *ngFor="let b of breeds" [value]="b.externalId">
+      {{ b.name }}
+    </ng-option>
+  </ng-select>
 </app-dialog>
