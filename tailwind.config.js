@@ -9,9 +9,9 @@ module.exports = {
         accent: '#DEC68B',
       },
       backgroundImage: {
-        'hero-lg': 'url(/assets/HeroImagelg.png)',
-        'hero-md': 'url(/assets/HeroImagemd.png)',
-        'hero-sm': 'url(/assets/HeroImagesm.png)',
+        'hero-lg': 'url(/assets/images/HeroImagelg.png)',
+        'hero-md': 'url(/assets/images/HeroImagemd.png)',
+        'hero-sm': 'url(/assets/images/HeroImagesm.png)',
       },
       backgroundColor: {
         primary: '#291507',
