@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       colors: {
         primary: '#291507',
+        accent: '#DEC68B',
       },
       backgroundImage: {
         'hero-lg': 'url(/assets/HeroImagelg.png)',

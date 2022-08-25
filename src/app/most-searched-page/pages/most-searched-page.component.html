@@ -4,29 +4,34 @@
   *skeleton="isLoading; repeat: 5; className: 'w-full h-48 mb-8 rounded-2xl'"
 >
   <li *ngFor="let breed of mostSearchedBreeds; let i = index">
-    <section
-      class="grid grid-cols-1 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-10 xl:grid-cols-6 2xl:grid-cols-8 relative mb-14 lg:mb-16"
+    <a
+      class="block cursor-pointer transition lg:hover:bg-accent lg:hover:bg-opacity-20 rounded-xl lg:p-4 mb-14 lg:mb-16"
+      routerLink="/breed/{{ breed.externalId }}"
     >
-      <picture class="sm:col-span-3 lg:col-span-2 xl:col-span-1">
-        <img
-          [src]="breed.imageUrl"
-          [alt]="'A photo of a(n) ' + breed.name + ' cat'"
-          class="w-full sm:w-44 h-[55vw] sm:h-44 object-cover rounded-2xl"
-        />
-      </picture>
-      <div
-        class="px-3 py-4 sm:col-span-7 md:col-span-9 lg:col-span-8 xl:col-span-5 2xl:col-span-7 sm:py-0 sm:pl-8 lg:pl-5 xl:pl-2 2xl:pl-8 sm:pr-0"
+      <section
+        class="grid grid-cols-1 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-10 xl:grid-cols-6 2xl:grid-cols-8 relative"
       >
-        <h2 class="text-3xl font-semibold mb-4">
-          {{ i + 1 }}. {{ breed.name }}
-        </h2>
-        <span class="text-sm lg:text-base font-medium">
-          {{ breed.description }}
-        </span>
-      </div>
-      <span
-        class="absolute sm:hidden w-1/4 h-[6px] bg-accent rounded-full right-0 -bottom-[2px] mr-4 opacity-50"
-      ></span>
-    </section>
+        <picture class="sm:col-span-3 lg:col-span-2 xl:col-span-1">
+          <img
+            [src]="breed.imageUrl"
+            [alt]="'A photo of a(n) ' + breed.name + ' cat'"
+            class="w-full sm:w-44 h-[55vw] sm:h-44 object-cover rounded-2xl"
+          />
+        </picture>
+        <div
+          class="px-3 py-4 sm:col-span-7 md:col-span-9 lg:col-span-8 xl:col-span-5 2xl:col-span-7 sm:py-0 sm:pl-8 lg:pl-5 xl:pl-2 2xl:pl-8 sm:pr-0"
+        >
+          <h2 class="text-3xl font-semibold mb-4">
+            {{ i + 1 }}. {{ breed.name }}
+          </h2>
+          <span class="text-sm lg:text-base font-medium">
+            {{ breed.description }}
+          </span>
+        </div>
+        <span
+          class="absolute sm:hidden w-1/4 h-[6px] bg-accent rounded-full right-0 -bottom-[2px] mr-4 opacity-50"
+        ></span>
+      </section>
+    </a>
   </li>
 </ul>
