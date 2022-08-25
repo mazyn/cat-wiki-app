@@ -17,6 +17,7 @@
 
 // NgSelect
 @import '~@ng-select/ng-select/themes/default.theme.css';
+@import './assets/styles/ng-select.scss';
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -81,58 +82,6 @@ body {
   }
   100% {
     opacity: 1;
-  }
-}
-
-/*******
-* NgSelect Customization
-***/
-.ng-select.ng-select__custom .ng-select-container {
-  @apply border border-black rounded-full h-11 #{!important};
-
-  input,
-  .ng-value {
-    @apply font-semibold text-lg text-black px-2 #{!important};
-  }
-
-  .ng-placeholder {
-    @apply px-2;
-  }
-
-  .ng-arrow-wrapper {
-    @apply material-icons mi-search right-3;
-
-    .ng-arrow {
-      @apply hidden;
-    }
-  }
-
-  .ng-spinner-loader {
-    @apply right-3;
-
-    + .ng-arrow-wrapper {
-      @apply hidden;
-    }
-  }
-}
-
-.ng-select.ng-select__custom .ng-dropdown-panel {
-  @apply border-none mt-6;
-
-  .ng-option {
-    @apply py-3;
-
-    &.ng-option-selected {
-      @apply bg-gray-100 rounded-xl;
-    }
-
-    &.ng-option-marked {
-      @apply bg-accent bg-opacity-20 text-black text-opacity-30 rounded-xl;
-    }
-  }
-
-  .ng-option-label {
-    @apply text-lg font-medium text-black;
   }
 }
 

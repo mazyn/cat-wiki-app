@@ -1,0 +1,48 @@
+.ng-select.ng-select-custom-mobile .ng-select-container {
+  @apply border border-black rounded-full h-11 #{!important};
+
+  input,
+  .ng-value {
+    @apply font-semibold text-lg text-black px-2 #{!important};
+  }
+
+  .ng-placeholder {
+    @apply px-2;
+  }
+
+  .ng-arrow-wrapper {
+    @apply material-icons mi-search right-3;
+
+    .ng-arrow {
+      @apply hidden;
+    }
+  }
+
+  .ng-spinner-loader {
+    @apply right-3;
+
+    + .ng-arrow-wrapper {
+      @apply hidden;
+    }
+  }
+}
+
+.ng-select.ng-select-custom-mobile .ng-dropdown-panel {
+  @apply border-none mt-6;
+
+  .ng-option {
+    @apply py-3;
+
+    &.ng-option-selected {
+      @apply bg-gray-100 rounded-xl;
+    }
+
+    &.ng-option-marked {
+      @apply bg-accent bg-opacity-20 text-black text-opacity-30 rounded-xl;
+    }
+  }
+
+  .ng-option-label {
+    @apply text-lg font-medium text-black;
+  }
+}
