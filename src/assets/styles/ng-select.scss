@@ -40,6 +40,10 @@
     &.ng-option-marked {
       @apply bg-gray-100 text-black text-opacity-30 rounded-xl mr-2;
     }
+
+    &.ng-option-disabled {
+      @apply text-gray-500;
+    }
   }
 
   .ng-option-label {
