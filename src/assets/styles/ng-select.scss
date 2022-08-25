@@ -1,4 +1,84 @@
-.ng-select.ng-select-custom-mobile .ng-select-container {
+/*******
+* Custom styles for larger devices (min-width: 640px)
+***/
+.ng-select.ng-select-custom .ng-select-container {
+  @apply border-none rounded-full h-[70px] #{!important};
+
+  input,
+  .ng-value,
+  .ng-placeholder {
+    @apply text-xs md:text-sm lg:text-lg text-primary font-medium px-5 #{!important};
+  }
+
+  & .ng-value-container div[role='combobox'] {
+    @apply top-1/2 -translate-y-1/2;
+  }
+
+  .ng-arrow-wrapper {
+    @apply material-icons mi-search right-6;
+
+    .ng-arrow {
+      @apply hidden;
+    }
+  }
+
+  .ng-spinner-loader {
+    @apply right-6;
+
+    + .ng-arrow-wrapper {
+      @apply hidden;
+    }
+  }
+}
+
+.ng-select.ng-select-custom .ng-dropdown-panel {
+  @apply border-none rounded-3xl overflow-hidden px-3 py-4 mt-6 #{!important};
+
+  .ng-option {
+    @apply py-3;
+
+    &.ng-option-marked {
+      @apply bg-gray-100 text-black text-opacity-30 rounded-xl mr-2;
+    }
+  }
+
+  .ng-option-label {
+    @apply text-lg font-medium text-black;
+  }
+
+  .scroll-host {
+    /* width */
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f2f2f2;
+      border-radius: 9999px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #bdbdbd;
+      border-radius: 9999px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #9b9b9b;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+  }
+}
+
+/*******
+* Custom styles for Mobile devices (max-width: 639px)
+***/
+.ng-select.ng-select-custom--mobile .ng-select-container {
   @apply border border-black rounded-full h-11 #{!important};
 
   input,
@@ -27,7 +107,7 @@
   }
 }
 
-.ng-select.ng-select-custom-mobile .ng-dropdown-panel {
+.ng-select.ng-select-custom--mobile .ng-dropdown-panel {
   @apply border-none mt-6;
 
   .ng-option {

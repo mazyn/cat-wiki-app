@@ -1,0 +1,10 @@
+/*******
+* Search Icon
+***/
+.mi-search::before {
+  content: '\e8b6';
+}
+
+.mi-search-off::before {
+  content: '\ea76';
+}
