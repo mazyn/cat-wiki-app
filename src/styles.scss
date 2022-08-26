@@ -5,6 +5,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+// Swiper
+@import 'swiper/scss';
+@import 'swiper/scss/a11y';
+@import 'swiper/scss/pagination';
+
 // Material Icons
 @import 'material-icons/iconfont/filled.css';
 @import './assets/styles/material-css-icons.scss';
@@ -24,6 +29,9 @@
 @import './assets/styles/animations.scss';
 
 body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   font-family: 'Montserrat', sans-serif;
 }
 

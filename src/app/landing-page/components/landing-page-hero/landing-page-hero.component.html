@@ -20,19 +20,21 @@
         <span class="text-xs font-medium">Search</span>
         <span class="material-icons !text-lg">search</span>
       </button>
-      <ng-select
-        class="hidden sm:block w-[90%] md:w-full ng-select-custom"
-        [(ngModel)]="selectedBreed"
-        placeholder="Enter your breed"
-        notFoundText="Breed not found"
-        [clearable]="false"
-        [loading]="isLoading"
-        (change)="handleSelectedBreed()"
-      >
-        <ng-option *ngFor="let b of breeds" [value]="b.externalId">
-          {{ b.name }}
-        </ng-option>
-      </ng-select>
+      <div class="hidden sm:block w-[90%] md:w-full">
+        <ng-select
+          class="ng-select-custom"
+          [(ngModel)]="selectedBreed"
+          placeholder="Enter your breed"
+          notFoundText="Breed not found"
+          [clearable]="false"
+          [loading]="isLoading"
+          (change)="handleSelectedBreed()"
+        >
+          <ng-option *ngFor="let b of breeds" [value]="b.externalId">
+            {{ b.name }}
+          </ng-option>
+        </ng-select>
+      </div>
     </div>
   </div>
 </section>

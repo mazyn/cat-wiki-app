@@ -49,11 +49,35 @@
       class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-8 xl:gap-10 2xl:gap-x-12 2xl:gap-y-14"
     >
       <img
-        class="w-full h-[40vw] sm:h-64 md:h-52 xl:h-[270px] 2xl:h-[320px] object-cover object-center rounded-xl"
-        *ngFor="let photo of breed?.photos?.slice(1)"
+        class="w-full h-[40vw] sm:h-64 md:h-52 xl:h-[270px] 2xl:h-[320px] object-cover object-center rounded-xl cursor-pointer"
+        *ngFor="let photo of breed?.photos?.slice(1); let i = index"
         [src]="photo"
         alt="A photo of the cat breed"
+        (click)="openPhotoGallery(i)"
       />
     </div>
   </section>
 </div>
+
+<app-dialog #photoGalleryDialog [imageMode]="true">
+  <div
+    *ngIf="photoGalleryDialog.isOpen"
+    class="w-[calc(100vw-2rem-6px)] h-[40vh] sm:w-[525px] sm:min-h-[400px] md:w-[640px] md:h-[50vh] md:min-h-[450px] lg:w-[720px] xl:w-[900px] xl:min-h-[550px] 2xl:w-[1250px] 2xl:h-[70vh]"
+  >
+    <swiper
+      [config]="swiperConfig"
+      [initialSlide]="swiperInitialSlide"
+      class="w-full h-full"
+    >
+      <ng-template swiperSlide *ngFor="let photo of breed?.photos">
+        <div class="flex justify-center items-center w-full h-full">
+          <img
+            class="w-full h-full object-cover object-center rounded-2xl"
+            [src]="photo"
+            alt="A photo of the cat breed"
+          />
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+</app-dialog>

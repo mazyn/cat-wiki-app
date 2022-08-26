@@ -1,16 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
+import SwiperCore, { Pagination, A11y, SwiperOptions } from 'swiper';
 
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 import { CatApiBreedPhoto } from 'src/app/shared/models';
 import { CatApiService } from 'src/app/shared/services';
+
+SwiperCore.use([Pagination, A11y]);
 
 @Component({
   selector: 'app-breed-details',
   templateUrl: './breed-details-page.component.html',
 })
 export class BreedDetailsPageComponent implements OnInit {
+  @ViewChild('photoGalleryDialog')
+  photoGalleryDialog: DialogComponent | undefined;
+
+  swiperConfig: SwiperOptions = {
+    pagination: {
+      dynamicBullets: true,
+    },
+    spaceBetween: 36,
+    loop: true,
+  };
+  swiperInitialSlide: number = 0;
+
   breed: CatApiBreedPhoto | undefined;
   isLoading: boolean = false;
   segmentedIndicators: { name: string; acessor: string }[] = [
@@ -55,7 +71,7 @@ export class BreedDetailsPageComponent implements OnInit {
     return this.breed?.photos[0] as string;
   }
 
-  getSimpleDetailList() {
+  getSimpleDetailList(): string {
     return [
       ['Temperament:', this.breed?.temperament],
       ['Origin:', this.breed?.origin],
@@ -77,5 +93,10 @@ export class BreedDetailsPageComponent implements OnInit {
     const b = this.breed as { [key: string]: any };
 
     return Number.parseInt(b[acessor]);
+  }
+
+  openPhotoGallery(initialSlide: number): void {
+    this.swiperInitialSlide = initialSlide + 1;
+    this.photoGalleryDialog?.toggle();
   }
 }
