@@ -1,6 +1,6 @@
 {
   "name": "cat-wiki-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
@@ -10,7 +10,8 @@
     "dev:ssr": "ng run cat-wiki-app:serve-ssr",
     "serve:ssr": "node dist/cat-wiki-app/server/main.js",
     "build:ssr": "ng build && ng run cat-wiki-app:server",
-    "prerender": "ng run cat-wiki-app:prerender"
+    "prerender": "ng run cat-wiki-app:prerender",
+    "postinstall": "yarn run build:ssr"
   },
   "private": true,
   "dependencies": {
