@@ -1,30 +1,29 @@
 @layer components {
-  .rainbow-text-animated .char {
-    animation: rainbow-colors 2s linear infinite;
-    animation-delay: calc(-2s * var(--char-percent));
-  }
-
-  .rainbow-underline .char {
-    color: white;
-    text-decoration: underline;
+  .rainbow-test {
+    background: linear-gradient(
+      to right,
+      #f65555,
+      #a6f655,
+      #55f6f6,
+      #a655f6,
+      #f65555
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 4s ease-in-out infinite;
+    background-size: 400% 100%;
   }
 }
 
-@keyframes rainbow-colors {
-  0% {
-    color: #f65555;
-  }
-  25% {
-    color: #a6f655;
-  }
-  50% {
-    color: #55f6f6;
-  }
-  75% {
-    color: #a655f6;
-  }
+@keyframes rainbow_animation {
+  0%,
   100% {
-    color: #f65555;
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
   }
 }
 

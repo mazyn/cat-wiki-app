@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Splitting from 'splitting';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +8,5 @@ import Splitting from 'splitting';
 export class FooterComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {
-    Splitting();
-  }
+  ngOnInit(): void {}
 }
