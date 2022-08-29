@@ -18,14 +18,14 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
           class="w-full flex justify-end mb-6"
           [ngClass]="{ hidden: imageMode }"
         >
-          <a
+          <button
             type="button"
             class="inline-flex bg-gray-100 hover:bg-gray-300 focus:bg-gray-200 focus:outline-1 focus:outline-gray-700 rounded-lg p-2"
             (click)="toggle()"
             autofocus="false"
           >
             <span class="inline-block material-icons">close</span>
-          </a>
+          </button>
         </div>
         <ng-content></ng-content>
       </section>
