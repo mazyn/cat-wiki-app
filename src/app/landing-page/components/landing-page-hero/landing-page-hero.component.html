@@ -39,7 +39,11 @@
   </div>
 </section>
 
-<app-dialog #searchBreedDialog customClasses="h-[400px] max-w-[375px]">
+<app-dialog
+  *ngIf="shouldRenderDialog()"
+  #searchBreedDialog
+  customClasses="h-[400px] max-w-[375px]"
+>
   <ng-select
     #ngSelect
     class="ng-select-custom--mobile"

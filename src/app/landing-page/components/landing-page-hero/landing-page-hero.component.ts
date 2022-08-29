@@ -1,10 +1,18 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgSelectComponent } from '@ng-select/ng-select';
-import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 import { CatApiBreed } from 'src/app/shared/models';
 import { CatApiService } from 'src/app/shared/services';
+import { isMobile } from 'src/app/shared/utils/responsive';
 
 @Component({
   selector: 'app-landing-page-hero',
@@ -24,6 +32,7 @@ export class LandingPageHeroComponent implements OnInit {
   constructor(
     private readonly catApiService: CatApiService,
     private readonly router: Router,
+    @Inject(PLATFORM_ID) private readonly platform: any,
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +54,17 @@ export class LandingPageHeroComponent implements OnInit {
 
   handleSelectedBreed(): void {
     if (!this.selectedBreed) return;
-    this.catApiService.increaseBreedSearchCount(this.selectedBreed);
-    this.router.navigateByUrl(`/breed/${this.selectedBreed}`).then(() => {});
+    this.catApiService
+      .increaseBreedSearchCount(this.selectedBreed)
+      .subscribe(() => {
+        this.router
+          .navigateByUrl(`/breed/${this.selectedBreed}`)
+          .then(() => {});
+      });
+  }
+
+  shouldRenderDialog(): boolean {
+    if (isPlatformBrowser(this.platform)) return isMobile(window);
+    return false;
   }
 }

@@ -4,7 +4,6 @@ import { TailwindSize, getTextSizeClass } from '../../utils/tailwind';
 @Component({
   selector: 'app-subheading',
   templateUrl: './subheading.component.html',
-  styleUrls: ['./subheading.component.scss'],
 })
 export class SubheadingComponent implements OnInit {
   @Input('size') size: TailwindSize = '';
