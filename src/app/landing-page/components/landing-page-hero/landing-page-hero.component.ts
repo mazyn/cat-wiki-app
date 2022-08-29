@@ -45,7 +45,12 @@ export class LandingPageHeroComponent implements OnInit {
 
   handleSelectedBreed(): void {
     if (!this.selectedBreed) return;
-    this.catApiService.increaseBreedSearchCount(this.selectedBreed);
-    this.router.navigateByUrl(`/breed/${this.selectedBreed}`).then(() => {});
+    this.catApiService
+      .increaseBreedSearchCount(this.selectedBreed)
+      .subscribe(() => {
+        this.router
+          .navigateByUrl(`/breed/${this.selectedBreed}`)
+          .then(() => {});
+      });
   }
 }

@@ -55,13 +55,14 @@ export class CatApiService {
       );
   }
 
-  public increaseBreedSearchCount(breedId: string): void {
-    this.httpClient
+  public increaseBreedSearchCount(breedId: string): Observable<any> {
+    return this.httpClient
       .patch(this.getUrl('breed/searched'), {
         externalId: breedId,
       })
-      .pipe(catchError((e) => httpErrorHandler(e, this.toastr)))
-      .subscribe(() => {})
-      .unsubscribe();
+      .pipe(
+        take(1),
+        catchError((e) => httpErrorHandler(e, this.toastr)),
+      );
   }
 }
