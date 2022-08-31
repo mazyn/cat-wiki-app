@@ -158,6 +158,11 @@ Lastly, to run the app, CD into the `cat-wiki-app` folder. Then, edit the `src/e
   catApiUrl: "http://localhost:8080/v1" // don't forget to add the "/v1" at the end!
 ```
 
+Install the app dependencies:
+```bash
+$ yarn
+```
+
 Then, just run the app 😉
 ```bash
 $ yarn start
