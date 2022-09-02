@@ -1,11 +1,23 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  OnDestroy,
+  PLATFORM_ID,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-dialog',
   template: `
     <dialog
-      class="backdrop:bg-gray-800 backdrop:opacity-70 bg-transparent w-full relative z-0 p-0"
-      [ngClass]="{ 'flex justify-center items-center': imageMode && isOpen }"
+      class="backdrop:bg-gray-800 backdrop:opacity-70 bg-transparent w-full z-0 p-0"
+      [ngClass]="{
+        'max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl h-96 md:h-[512px] lg:h-[672px] xl:h-[736px]':
+          imageMode && isOpen
+      }"
       #dialog
       (click)="handleClick($event)"
       (cancel)="handleCancelEvent($event)"
@@ -14,13 +26,10 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
         class="rounded-xl bg-white h-full p-4 mx-auto"
         [ngClass]="wrapperClasses"
       >
-        <div
-          class="w-full flex justify-end mb-6"
-          [ngClass]="{ hidden: imageMode }"
-        >
+        <div class="flex justify-end pointer-events-none mb-6">
           <button
             type="button"
-            class="inline-flex bg-gray-100 hover:bg-gray-300 focus:bg-gray-200 focus:outline-1 focus:outline-gray-700 rounded-lg p-2"
+            class="inline-flex pointer-events-auto bg-gray-100 hover:bg-gray-300 focus:outline-none rounded-lg p-2"
             (click)="toggle()"
             autofocus="false"
           >
@@ -32,7 +41,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
     </dialog>
   `,
 })
-export class DialogComponent {
+export class DialogComponent implements OnDestroy {
   @ViewChild('dialog', { static: true })
   private dialogEl: ElementRef | undefined;
 
@@ -44,7 +53,10 @@ export class DialogComponent {
 
   private show: boolean = false;
 
-  constructor() {}
+  constructor(
+    @Inject(DOCUMENT) private readonly document: Document,
+    @Inject(PLATFORM_ID) private readonly platform: any,
+  ) {}
 
   get isOpen(): boolean {
     return this.show === true;
@@ -57,11 +69,32 @@ export class DialogComponent {
 
   private toggleDialogElement(): void {
     if (this.show) {
+      this.lockScroll();
       this.dialogEl?.nativeElement.showModal();
       return;
     }
 
     this.dialogEl?.nativeElement.close();
+    this.unlockScroll();
+  }
+
+  private lockScroll(): void {
+    if (!isPlatformBrowser(this.platform)) return;
+    const offsetY = window.scrollY;
+    this.document.body.style.top = `${-offsetY}px`;
+    this.document.body.classList.add('js-lock-position');
+  }
+
+  private unlockScroll(): void {
+    if (!isPlatformBrowser(this.platform)) return;
+    const offsetY = Math.abs(parseInt(this.document.body.style.top || '0', 10));
+    this.document.body.classList.remove('js-lock-position');
+    this.document.body.style.removeProperty('top');
+    window.scrollTo(0, offsetY || 0);
+  }
+
+  ngOnDestroy(): void {
+    this.unlockScroll();
   }
 
   handleClick(event: MouseEvent): void {
@@ -76,7 +109,8 @@ export class DialogComponent {
   get wrapperClasses(): string {
     let classes = '';
 
-    if (this.imageMode) classes += 'bg-transparent inline-flex flex-col';
+    if (this.imageMode)
+      classes += 'bg-transparent flex flex-col pointer-events-none';
 
     if (!this.customClasses) return classes;
 

@@ -60,24 +60,20 @@
 </div>
 
 <app-dialog #photoGalleryDialog [imageMode]="true">
-  <div
+  <swiper
     *ngIf="photoGalleryDialog.isOpen"
-    class="w-[calc(100vw-2rem-6px)] h-[40vh] sm:w-[525px] sm:min-h-[400px] md:w-[640px] md:h-[50vh] md:min-h-[450px] lg:w-[720px] xl:w-[900px] xl:min-h-[550px] 2xl:w-[1250px] 2xl:h-[70vh]"
+    [config]="swiperConfig"
+    [initialSlide]="swiperInitialSlide"
+    class="w-full h-full pointer-events-auto cursor-grab active:cursor-grabbing"
   >
-    <swiper
-      [config]="swiperConfig"
-      [initialSlide]="swiperInitialSlide"
-      class="w-full h-full"
-    >
-      <ng-template swiperSlide *ngFor="let photo of breed?.photos">
-        <div class="flex justify-center items-center w-full h-full">
-          <img
-            class="w-full h-full object-cover object-center rounded-2xl"
-            [src]="photo"
-            alt="A photo of the cat breed"
-          />
-        </div>
-      </ng-template>
-    </swiper>
-  </div>
+    <ng-template swiperSlide *ngFor="let photo of breed?.photos">
+      <div class="flex justify-center items-center w-full h-full">
+        <img
+          class="w-full h-full object-cover object-center rounded-2xl"
+          [src]="photo"
+          alt="A photo of the cat breed"
+        />
+      </div>
+    </ng-template>
+  </swiper>
 </app-dialog>
