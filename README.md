@@ -189,6 +189,7 @@ That's it! Now you have the CatWiki App running locally on your machine! 🥳
 - [Angular Universal](https://github.com/angular/universal), for SSR
 - [Swiper](https://www.npmjs.com/package/swiper), for photo gallery
 - [@ng-select](https://www.npmjs.com/package/@ng-select/ng-select), for easy management of select dropdowns
+- [aos](https://github.com/michalsnik/aos), for incredible on-scroll animations
 
 ## Contact
 
