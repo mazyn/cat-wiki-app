@@ -1,12 +1,20 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import SwiperCore, { Pagination, A11y, SwiperOptions } from 'swiper';
+import * as AOS from 'aos';
 
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 import { CatApiBreedPhoto } from 'src/app/shared/models';
 import { CatApiService } from 'src/app/shared/services';
+import { isPlatformBrowser } from '@angular/common';
 
 SwiperCore.use([Pagination, A11y]);
 
@@ -44,9 +52,18 @@ export class BreedDetailsPageComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly catApiService: CatApiService,
     private readonly toastr: ToastrService,
+    @Inject(PLATFORM_ID) private readonly platformId: Object,
   ) {}
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init({
+        disable: window.innerWidth < 1024,
+        duration: 1000,
+        once: true,
+      });
+    }
+
     this.isLoading = true;
 
     this.route.paramMap.pipe(take(1)).subscribe((map) => {
