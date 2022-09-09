@@ -1,0 +1,15 @@
+@media screen and (max-width: 1023px) {
+  [data-aos] {
+    pointer-events: auto !important;
+  }
+
+  html:not(.no-js) [data-aos^='fade'][data-aos^='fade'] {
+    opacity: 1 !important;
+  }
+
+  html:not(.no-js) [data-aos='fade-up'],
+  html:not(.no-js) [data-aos='fade-left'],
+  html:not(.no-js) [data-aos='fade-right'] {
+    transform: none !important;
+  }
+}

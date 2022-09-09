@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  catApiUrl: 'http://localhost:3000/v1',
+  catApiUrl: 'https://cat-wiki-api-mazyn.herokuapp.com/v1',
 };
 
 /*

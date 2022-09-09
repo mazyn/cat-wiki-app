@@ -7,6 +7,8 @@
   >
     <div
       class="relative w-full xl:w-[370px] h-[60vw] sm:h-[420px] md:h-60 lg:h-80 xl:h-[370px] xl:ml-auto"
+      data-aos="fade-right"
+      data-aos-duration="1500"
     >
       <img
         class="object-cover object-center w-full h-full rounded-3xl relative z-10"
@@ -24,17 +26,40 @@
   <section
     class="md:flex-1 2xl:flex-none lg:w-[60%] xl:w-full 2xl:w-[60%] px-4 xl:px-28 md:pl-12 lg:pl-20 lg:pr-6 mb-14 sm:mb-16"
   >
-    <h2 class="font-semibold text-3xl sm:text-4xl mb-4">{{ breed?.name }}</h2>
-    <p class="font-medium leading-6 text-sm sm:text-lg mb-8">
+    <h2
+      class="font-semibold text-3xl sm:text-4xl mb-4"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      {{ breed?.name }}
+    </h2>
+    <p
+      class="font-medium leading-6 text-sm sm:text-lg mb-8"
+      data-aos="fade-left"
+      data-aos-delay="250"
+      data-aos-duration="1250"
+    >
       {{ breed?.description }}
     </p>
-    <div class="sm:w-[80%] md:w-auto lg:w-[85%] 2xl:w-[75%]">
+    <div
+      class="sm:w-[80%] md:w-auto lg:w-[85%] 2xl:w-[75%] detail-list-anchor"
+      data-aos="fade"
+      data-aos-delay="750"
+      data-aos-duration="1500"
+    >
       <ul
         class="text-xs sm:text-base leading-5"
         [innerHTML]="getSimpleDetailList()"
       ></ul>
       <ul class="text-xs sm:text-base leading-5">
-        <li class="mb-3 sm:mb-6" *ngFor="let indicator of segmentedIndicators">
+        <li
+          class="mb-3 sm:mb-6"
+          *ngFor="let indicator of segmentedIndicators; let i = index"
+          data-aos="fade-left"
+          [attr.data-aos-delay]="850 + i * 100"
+          data-aos-duration="1500"
+          data-aos-anchor=".detail-list-anchor"
+        >
           <app-breed-details-stats-indicator
             [statusName]="indicator.name"
             [currentLevel]="getSegmentCurrentValue(indicator.acessor)"
@@ -48,13 +73,17 @@
     <div
       class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-8 xl:gap-10 2xl:gap-x-12 2xl:gap-y-14"
     >
-      <img
-        class="w-full h-[40vw] sm:h-64 md:h-52 xl:h-[270px] 2xl:h-[320px] object-cover object-center rounded-xl cursor-pointer"
+      <div
         *ngFor="let photo of breed?.photos?.slice(1); let i = index"
-        [src]="photo"
-        alt="A photo of the cat breed"
+        class="w-full h-[40vw] sm:h-64 md:h-52 xl:h-[270px] 2xl:h-[320px] rounded-xl cursor-pointer overflow-hidden"
         (click)="openPhotoGallery(i)"
-      />
+      >
+        <img
+          class="object-cover object-center w-full h-full lg:transition-transform lg:hover:scale-105"
+          [src]="photo"
+          alt="A photo of the cat breed"
+        />
+      </div>
     </div>
   </section>
 </div>

@@ -1,11 +1,22 @@
-<h1 class="text-4xl font-bold mb-16">Top 10 most searched breeds</h1>
+<h1
+  class="text-4xl font-bold mb-16"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+>
+  Top 10 most searched breeds
+</h1>
 <ul
-  class="mb-24"
+  class="mb-24 aos-list-anchor"
   *skeleton="isLoading; repeat: 5; className: 'w-full h-48 mb-8 rounded-2xl'"
 >
-  <li *ngFor="let breed of mostSearchedBreeds; let i = index">
+  <li
+    *ngFor="let breed of mostSearchedBreeds; let i = index"
+    data-aos="fade-left"
+    data-aos-anchor=".aos-list-anchor"
+    [attr.data-aos-delay]="0 + i * 150"
+  >
     <a
-      class="block cursor-pointer transition lg:hover:bg-accent lg:hover:bg-opacity-20 rounded-xl lg:p-4 mb-14 lg:mb-16"
+      class="block cursor-pointer rounded-xl transition lg:hover:bg-accent lg:hover:bg-opacity-20 lg:hover:scale-[1.02] lg:p-4 mb-14 lg:mb-16"
       routerLink="/breed/{{ breed.externalId }}"
     >
       <section
